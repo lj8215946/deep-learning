@@ -340,7 +340,7 @@ def build_nn(cell, rnn_size, input_data, vocab_size, embed_dim):
     
     # Fully Connection
     # rnn_shape = rnn_outputs.get_shape().as_list()
-    logits = tf.contrib.layers.fully_connected(rnn_outputs, vocab_size, activation_fn=tf.nn.relu
+    logits = tf.contrib.layers.fully_connected(rnn_outputs, vocab_size, activation_fn=None
                                                , weights_initializer=tf.truncated_normal_initializer())
     # stddev=(1/np.sqrt(embed_dim))
     # print("input:{} ,embed:{} ,rnn_out:{} ,rnn_outputs2:{} ,logits:{}".format(input_data.get_shape().as_list(), embed.get_shape().as_list(), rnn_outputs.get_shape().as_list(),rnn_outputs[:,:,-1].get_shape().as_list(), logits.get_shape().as_list()))
@@ -441,13 +441,13 @@ tests.test_get_batches(get_batches)
 # Number of Epochs
 num_epochs = 300
 # Batch Size
-batch_size = 4600
+batch_size = 2048
 # RNN Size
 rnn_size = 512
 # Embedding Dimension Size
-embed_dim = 400
+embed_dim = 256
 # Sequence Length
-seq_length = 8
+seq_length = 20
 # Learning Rate
 learning_rate = 0.01
 # Show stats for every n number of batches

@@ -12431,7 +12431,7 @@ Default GPU Device: /gpu:0
     
     <span class="c1"># Fully Connection</span>
     <span class="c1"># rnn_shape = rnn_outputs.get_shape().as_list()</span>
-    <span class="n">logits</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">contrib</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">fully_connected</span><span class="p">(</span><span class="n">rnn_outputs</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">,</span> <span class="n">activation_fn</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span>
+    <span class="n">logits</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">contrib</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">fully_connected</span><span class="p">(</span><span class="n">rnn_outputs</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">,</span> <span class="n">activation_fn</span><span class="o">=</span><span class="kc">None</span>
                                                <span class="p">,</span> <span class="n">weights_initializer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal_initializer</span><span class="p">())</span>
     <span class="c1"># stddev=(1/np.sqrt(embed_dim))</span>
     <span class="c1"># print(&quot;input:{} ,embed:{} ,rnn_out:{} ,rnn_outputs2:{} ,logits:{}&quot;.format(input_data.get_shape().as_list(), embed.get_shape().as_list(), rnn_outputs.get_shape().as_list(),rnn_outputs[:,:,-1].get_shape().as_list(), logits.get_shape().as_list()))</span>
@@ -12592,13 +12592,13 @@ Default GPU Device: /gpu:0
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Number of Epochs</span>
 <span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">300</span>
 <span class="c1"># Batch Size</span>
-<span class="n">batch_size</span> <span class="o">=</span> <span class="mi">4600</span>
+<span class="n">batch_size</span> <span class="o">=</span> <span class="mi">2048</span>
 <span class="c1"># RNN Size</span>
 <span class="n">rnn_size</span> <span class="o">=</span> <span class="mi">512</span>
 <span class="c1"># Embedding Dimension Size</span>
-<span class="n">embed_dim</span> <span class="o">=</span> <span class="mi">400</span>
+<span class="n">embed_dim</span> <span class="o">=</span> <span class="mi">256</span>
 <span class="c1"># Sequence Length</span>
-<span class="n">seq_length</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">seq_length</span> <span class="o">=</span> <span class="mi">20</span>
 <span class="c1"># Learning Rate</span>
 <span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.01</span>
 <span class="c1"># Show stats for every n number of batches</span>
@@ -12726,66 +12726,66 @@ Default GPU Device: /gpu:0
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Epoch   0 Batch    0/1   train_loss = 10.056
-Epoch   5 Batch    0/1   train_loss = 7.983
-Epoch  10 Batch    0/1   train_loss = 6.114
-Epoch  15 Batch    0/1   train_loss = 5.280
-Epoch  20 Batch    0/1   train_loss = 4.672
-Epoch  25 Batch    0/1   train_loss = 4.178
-Epoch  30 Batch    0/1   train_loss = 3.752
-Epoch  35 Batch    0/1   train_loss = 3.385
-Epoch  40 Batch    0/1   train_loss = 3.078
-Epoch  45 Batch    0/1   train_loss = 2.829
-Epoch  50 Batch    0/1   train_loss = 2.627
-Epoch  55 Batch    0/1   train_loss = 2.457
-Epoch  60 Batch    0/1   train_loss = 2.315
-Epoch  65 Batch    0/1   train_loss = 2.188
-Epoch  70 Batch    0/1   train_loss = 2.066
-Epoch  75 Batch    0/1   train_loss = 1.977
-Epoch  80 Batch    0/1   train_loss = 1.857
-Epoch  85 Batch    0/1   train_loss = 1.752
-Epoch  90 Batch    0/1   train_loss = 1.677
-Epoch  95 Batch    0/1   train_loss = 1.614
-Epoch 100 Batch    0/1   train_loss = 1.559
-Epoch 105 Batch    0/1   train_loss = 1.511
-Epoch 110 Batch    0/1   train_loss = 1.469
-Epoch 115 Batch    0/1   train_loss = 1.433
-Epoch 120 Batch    0/1   train_loss = 1.402
-Epoch 125 Batch    0/1   train_loss = 1.376
-Epoch 130 Batch    0/1   train_loss = 1.334
-Epoch 135 Batch    0/1   train_loss = 1.111
-Epoch 140 Batch    0/1   train_loss = 1.045
-Epoch 145 Batch    0/1   train_loss = 1.005
-Epoch 150 Batch    0/1   train_loss = 0.977
-Epoch 155 Batch    0/1   train_loss = 0.958
-Epoch 160 Batch    0/1   train_loss = 0.946
-Epoch 165 Batch    0/1   train_loss = 0.938
-Epoch 170 Batch    0/1   train_loss = 0.932
-Epoch 175 Batch    0/1   train_loss = 0.927
-Epoch 180 Batch    0/1   train_loss = 0.924
-Epoch 185 Batch    0/1   train_loss = 0.921
-Epoch 190 Batch    0/1   train_loss = 0.919
-Epoch 195 Batch    0/1   train_loss = 0.917
-Epoch 200 Batch    0/1   train_loss = 0.916
-Epoch 205 Batch    0/1   train_loss = 0.915
-Epoch 210 Batch    0/1   train_loss = 0.914
-Epoch 215 Batch    0/1   train_loss = 0.913
-Epoch 220 Batch    0/1   train_loss = 0.912
-Epoch 225 Batch    0/1   train_loss = 0.911
-Epoch 230 Batch    0/1   train_loss = 0.911
-Epoch 235 Batch    0/1   train_loss = 0.910
-Epoch 240 Batch    0/1   train_loss = 0.909
-Epoch 245 Batch    0/1   train_loss = 0.909
-Epoch 250 Batch    0/1   train_loss = 0.909
-Epoch 255 Batch    0/1   train_loss = 0.908
-Epoch 260 Batch    0/1   train_loss = 0.908
-Epoch 265 Batch    0/1   train_loss = 0.907
-Epoch 270 Batch    0/1   train_loss = 0.907
-Epoch 275 Batch    0/1   train_loss = 0.907
-Epoch 280 Batch    0/1   train_loss = 0.906
-Epoch 285 Batch    0/1   train_loss = 0.906
-Epoch 290 Batch    0/1   train_loss = 0.906
-Epoch 295 Batch    0/1   train_loss = 0.906
+<pre>Epoch   0 Batch    0/1   train_loss = 10.323
+Epoch   5 Batch    0/1   train_loss = 9.422
+Epoch  10 Batch    0/1   train_loss = 6.117
+Epoch  15 Batch    0/1   train_loss = 4.985
+Epoch  20 Batch    0/1   train_loss = 4.392
+Epoch  25 Batch    0/1   train_loss = 3.931
+Epoch  30 Batch    0/1   train_loss = 3.510
+Epoch  35 Batch    0/1   train_loss = 3.096
+Epoch  40 Batch    0/1   train_loss = 2.694
+Epoch  45 Batch    0/1   train_loss = 2.312
+Epoch  50 Batch    0/1   train_loss = 1.958
+Epoch  55 Batch    0/1   train_loss = 1.643
+Epoch  60 Batch    0/1   train_loss = 1.413
+Epoch  65 Batch    0/1   train_loss = 1.165
+Epoch  70 Batch    0/1   train_loss = 0.971
+Epoch  75 Batch    0/1   train_loss = 0.814
+Epoch  80 Batch    0/1   train_loss = 0.681
+Epoch  85 Batch    0/1   train_loss = 0.573
+Epoch  90 Batch    0/1   train_loss = 0.597
+Epoch  95 Batch    0/1   train_loss = 0.602
+Epoch 100 Batch    0/1   train_loss = 0.443
+Epoch 105 Batch    0/1   train_loss = 0.363
+Epoch 110 Batch    0/1   train_loss = 0.296
+Epoch 115 Batch    0/1   train_loss = 0.249
+Epoch 120 Batch    0/1   train_loss = 0.214
+Epoch 125 Batch    0/1   train_loss = 0.189
+Epoch 130 Batch    0/1   train_loss = 0.171
+Epoch 135 Batch    0/1   train_loss = 0.159
+Epoch 140 Batch    0/1   train_loss = 0.150
+Epoch 145 Batch    0/1   train_loss = 0.144
+Epoch 150 Batch    0/1   train_loss = 0.139
+Epoch 155 Batch    0/1   train_loss = 0.136
+Epoch 160 Batch    0/1   train_loss = 0.133
+Epoch 165 Batch    0/1   train_loss = 0.131
+Epoch 170 Batch    0/1   train_loss = 0.130
+Epoch 175 Batch    0/1   train_loss = 0.128
+Epoch 180 Batch    0/1   train_loss = 0.127
+Epoch 185 Batch    0/1   train_loss = 0.126
+Epoch 190 Batch    0/1   train_loss = 0.125
+Epoch 195 Batch    0/1   train_loss = 0.125
+Epoch 200 Batch    0/1   train_loss = 0.124
+Epoch 205 Batch    0/1   train_loss = 0.124
+Epoch 210 Batch    0/1   train_loss = 0.123
+Epoch 215 Batch    0/1   train_loss = 0.123
+Epoch 220 Batch    0/1   train_loss = 0.122
+Epoch 225 Batch    0/1   train_loss = 0.122
+Epoch 230 Batch    0/1   train_loss = 0.122
+Epoch 235 Batch    0/1   train_loss = 0.121
+Epoch 240 Batch    0/1   train_loss = 0.121
+Epoch 245 Batch    0/1   train_loss = 0.121
+Epoch 250 Batch    0/1   train_loss = 0.121
+Epoch 255 Batch    0/1   train_loss = 0.120
+Epoch 260 Batch    0/1   train_loss = 0.120
+Epoch 265 Batch    0/1   train_loss = 0.120
+Epoch 270 Batch    0/1   train_loss = 0.120
+Epoch 275 Batch    0/1   train_loss = 0.120
+Epoch 280 Batch    0/1   train_loss = 0.120
+Epoch 285 Batch    0/1   train_loss = 0.120
+Epoch 290 Batch    0/1   train_loss = 0.119
+Epoch 295 Batch    0/1   train_loss = 0.119
 Model Trained and Saved
 </pre>
 </div>
@@ -13041,27 +13041,19 @@ Model Trained and Saved
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>INFO:tensorflow:Restoring parameters from ./save
-moe_szyslak: hey, homer.(as homer sits)
-homer_simpson: hey, if we get your crank beer. and take the barney-guarding(moe).
-moe_szyslak: huh. hey!(sighs)
-
-
-moe_szyslak: hey, homer, ain&#39;t that your love!
-homer_simpson:(checking book) no, that&#39;s the kinda thing you gotta
-moe_szyslak:... then we light a of asked.
-moe_szyslak: hey, we have to your head.
-moe_szyslak: the gal i&#39;m stalking had me.
-moe_szyslak: another hey, homer.(as homer sits)
-homer_simpson: hey, if we get your crank beer. and take the barney-guarding(moe).
-moe_szyslak: huh. hey!(sighs)
-
-
-moe_szyslak: hey, homer, ain&#39;t that your love!
-homer_simpson:(checking book) no, that&#39;s the kinda thing you gotta
-moe_szyslak:... then we light a of asked.
-moe_szyslak: hey, we have to your head.
-moe_szyslak: the gal i&#39;m stalking had me.
-moe_szyslak: another hey, homer.
+moe_szyslak:(into phone) moe&#39;s tavern. where the elite meet to drink.
+bart_simpson: eh, yeah, you care to meet my best customer.
+homer_simpson: well, you really think could i don&#39;t have to go to make &#39;em.
+homer_simpson: okay, bad example. so let me ask you this, does your money ever hug you when i&#39;m talkin&#39;.
+lenny_leonard: that&#39;s bart kinda and: coming. whaaaa got it on the house.
+barney_gumble: you lie!(friends selling)
+homer_simpson:(tipsy) troy, buddy, i gotta know. what&#39;s a great guy like you wanna marry a guy.
+homer_simpson: okay, okay.
+marge_simpson: all right now, but only even any wars no you. up, sweetheart, the health inspector?
+moe_szyslak: uh, yeah, sure.
+moe_szyslak: uh, here you go. düff...
+moe_szyslak: hey, we can&#39;t let our friend drive like this. i&#39;m liable, here.
+homer_simpson:(to self, in awe) wow, a free beer beer and pets
 </pre>
 </div>
 </div>
